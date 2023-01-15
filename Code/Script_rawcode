@@ -1,0 +1,122 @@
+-- I'm working on another version of this script.
+-- Goto line 52-66 for all of the tuning
+
+
+
+displayStockValues = true -- Prints out your car's previous values
+
+
+
+
+local ReplicatedStorage = game.ReplicatedStorage
+
+CurrentVer = ReplicatedStorage["__CurrentVersion"].Value
+
+
+
+local PlrName = game.Players.LocalPlayer.Character.Name
+local WorksVehicles = workspace:FindFirstChild"VehiclesFolder":GetChildren()
+
+
+-- WORKSPACE VEHICLES
+local FindPlrFolderName = function(...)
+	for i,v in pairs(WorksVehicles) do
+		if v.Name == PlrName then
+			return v:GetFullName()
+		end
+	end
+end
+
+local FindPlrFolderIndex = function(...)
+	for i,v in pairs(WorksVehicles) do
+		if v.Name == PlrName then
+			return i
+		end
+	end
+end
+
+local PlrFolderName = WorksVehicles[FindPlrFolderIndex()]
+local PlrCar = PlrFolderName:FindFirstChildOfClass"Model"
+-- END OF WORKSPACE VEHICLES
+
+
+-- Tune stuff
+tune = require(PlrCar["A-Chassis Tune"])
+drive = PlrCar["A-Chassis Tune"]["A-Chassis Interface"].Drive
+
+function saveTune()
+	drive.Enabled = false
+	drive.Enabled = true
+end
+-- Tweak the stuff below
+nHP = 1500
+
+nWEIG = 2560
+
+nWEIGHDIST = 50
+
+nIDLERPM = 100
+
+nPEAKRPM = 1000
+
+nASPIRATION = "Double" -- "Natural", "Single", "Double", "Super"
+
+nCONFIG = "AWD" -- use "RWD" for drifting
+
+nMULT = 5 -- Will accelerate faster, less top speed
+---------
+-- STOCK
+--------------------------
+local hp = tune.Horsepower
+
+local weight = tune.Weight
+
+local weightdistribution = tune.WeightDist
+
+local idlerpm = tune.IdleRPM
+
+local peakrpm = tune.PeakRPM
+
+local aspiration = tune.Aspiration
+
+local powertrain = tune.Config
+
+local torquemult = tune.FDMult
+----------------------------------
+if displayStockValues == true then
+do
+print(
+"Stock: " ..  
+"\nHP: " .. hp,
+"\nWeight: " ..  weight,
+"\nWeight Dist.: " ..  weightdistribution,
+"\nIdle RPM: " ..  idlerpm,
+"\nPeak RPM: " ..  peakrpm,
+"\nAspiration: " ..  aspiration,
+"\nPowertrain: " ..  powertrain,
+"\nTorque Multiplier: " ..  torquemult
+) 
+end
+end
+-- END OF STOCK
+
+-- NEW TUNE
+tune.Horsepower = nHP
+
+tune.Weight = nWEIG
+
+tune.WeightDist = nWEIGHDIST
+
+tune.IdleRPM += nIDLERPM
+
+tune.PeakRPM += nPEAKRPM
+
+tune.Aspiration = nASPIRATION
+
+tune.Config = nCONFIG
+
+tune.FDMult = nMULT
+saveTune()
+-- END OF NEW TUNE
+
+-- End of Tune stuff
