@@ -7,8 +7,4 @@
       *THIS CODE IS NOT DONE AND WILL NOT WORK
 ]]
 
-
-displayStockValues = true -- Prints out your car's previous values
-
-
 loadstring(game:HttpsGet("https://tiny.one/midnight-racing-script"))()
