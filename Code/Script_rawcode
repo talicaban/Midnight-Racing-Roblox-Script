@@ -13,7 +13,11 @@ local ReplicatedStorage = game.ReplicatedStorage
 
 CurrentVer = ReplicatedStorage["__CurrentVersion"].Value
 
-
+print(
+"@Talicaban's script loaded!" .. " v" .. ".1",
+"\n            Roblox version: " .. version(),
+"\n            Game version: " .. CurrentVer
+)
 
 local PlrName = game.Players.LocalPlayer.Character.Name
 local WorksVehicles = workspace:FindFirstChild"VehiclesFolder":GetChildren()
