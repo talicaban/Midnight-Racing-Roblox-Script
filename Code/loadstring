@@ -1,0 +1,14 @@
+--[[
+
+      I don't recommend using the loadstring below because there are some values that you are suppose to tune on the raw script.
+      However, at the same time, using the loadstring method will allow you automatically get the latest version of my script.
+      I still have some op values inside the raw script, so it's up to you whether or not to use this script over the raw code.
+      
+      *THIS CODE IS NOT DONE AND WILL NOT WORK
+]]
+
+
+displayStockValues = true -- Prints out your car's previous values
+
+
+
