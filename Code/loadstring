@@ -5,6 +5,7 @@
       I still have some op values inside the raw script, so it's up to you whether or not to use this script over the raw code.
       
       *THIS CODE IS NOT DONE AND WILL NOT WORK
+      
 ]]
 
 loadstring(game:HttpsGet("https://tiny.one/midnight-racing-script"))()
