@@ -8,4 +8,4 @@
       
 ]]
 
-loadstring(game:HttpsGet("https://tiny.one/midnight-racing-script"))()
+loadstring(game:HttpsGet("https://raw.githubusercontent.com/talicaban/Midnight-Racing-Roblox-Script/main/Code/Script_rawcode"))()
